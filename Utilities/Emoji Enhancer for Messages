@@ -1,0 +1,38 @@
+# Emoji Enhancer for Messages
+# This script adds emojis after specific keywords to make messages expressive.
+# Features:
+# - Case-insensitive matching
+# - Handles punctuation like .,!? after keywords
+
+emoji_map_fun = {
+    "love": "❤️",
+    "happy": "😊",
+    "code": "💻",
+    "tea": "🍵",
+    "music": "🎵",
+    "food": "🍕",
+}
+
+# Get user message
+message = input("Enter your message: ")
+
+updated_words = []
+
+# Process each word
+for word in message.split():
+    # Remove punctuation and normalize case
+    cleaned_word = word.lower().strip(".,!?")
+
+    # Get emoji if keyword exists
+    emoji = emoji_map_fun.get(cleaned_word)
+
+    if emoji:
+        updated_words.append(f"{word} {emoji}")
+    else:
+        updated_words.append(word)
+
+# Join words back into a sentence
+updated_message = " ".join(updated_words)
+
+print("\nEnhanced message:\n")
+print(updated_message)
