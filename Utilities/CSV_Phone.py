@@ -22,7 +22,7 @@ def add_contact():
 
     with open(FILENAME, 'a' ,encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow([name, phone, email])
+        writer.writerow(name, phone, email)
     print("Contact added successfully")
 
 def view_contacts():
